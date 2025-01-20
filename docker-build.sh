@@ -1,3 +1,5 @@
+# kubectl port-forward service/local-registry 5000:5000
+
 docker build -t msa-server:latest ./msa-server
 docker build -t gateway:latest ./gateway
 docker build -t client:latest ./client

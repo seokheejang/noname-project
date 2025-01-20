@@ -2,20 +2,9 @@
 
 with GPT
 
+[DEV] k8s command
+
 ```bash
-project/
-├── gateway/
-│   ├── main.go
-│   └── Dockerfile
-├── msa-server/
-│   ├── main.go
-│   └── Dockerfile
-├── client/
-│   ├── src/
-│   │   └── main.jsx
-│   ├── public/
-│   └── vite.config.js
-├── k8s/
-│   ├── deployment.yaml
-│   └── service.yaml
+# local minikbue docker images
+eval $(minikube docker-env -u)
 ```
