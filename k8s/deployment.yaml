@@ -14,9 +14,13 @@ spec:
     spec:
       containers:
         - name: gateway
-          image: local-registry:5000/gateway:latest
+          image: nexus.local:8081/gateway:latest  # Nexus의 도메인 및 포트로 수정
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
+          env:
+            - name: REGISTRY_HOST
+              value: "nexus.local:8081"  # Nexus 서비스의 주소로 수정
 
 ---
 apiVersion: apps/v1
@@ -35,9 +39,13 @@ spec:
     spec:
       containers:
         - name: msa-server
-          image: local-registry:5000/msa-server:latest
+          image: nexus.local:8081/msa-server:latest  # Nexus의 도메인 및 포트로 수정
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
+          env:
+            - name: REGISTRY_HOST
+              value: "nexus.local:8081"  # Nexus 서비스의 주소로 수정
 
 ---
 apiVersion: apps/v1
@@ -56,6 +64,10 @@ spec:
     spec:
       containers:
         - name: client
-          image: local-registry:5000/client:latest
+          image: nexus.local:8081/client:latest  # Nexus의 도메인 및 포트로 수정
+          imagePullPolicy: Always
           ports:
             - containerPort: 3000
+          env:
+            - name: REGISTRY_HOST
+              value: "nexus.local:8081"  # Nexus 서비스의 주소로 수정

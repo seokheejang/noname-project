@@ -17,9 +17,6 @@ spec:
           image: registry:2
           ports:
             - containerPort: 5000
-          env:
-            - name: REGISTRY_HTTP_ADDR
-              value: "0.0.0.0:5000"
           volumeMounts:
             - name: registry-data
               mountPath: /var/lib/registry
@@ -35,6 +32,7 @@ metadata:
 spec:
   selector:
     app: local-registry
+  type: ClusterIP
   ports:
     - protocol: TCP
       port: 5000
