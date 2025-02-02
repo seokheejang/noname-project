@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: nexus
-          image: sonatype/nexus3:latest  # Nexus의 공식 이미지 사용
+          image: sonatype/nexus3:latest # Nexus의 공식 이미지 사용
           ports:
             - containerPort: 8081
           volumeMounts:
@@ -22,7 +22,7 @@ spec:
               mountPath: /nexus-data
           env:
             - name: NEXUS_SECURITY_RANDOMPASSWORD
-              value: "false"  # 기본 비밀번호를 생성하지 않도록 설정
+              value: "false" # 기본 비밀번호를 생성하지 않도록 설정
       volumes:
         - name: nexus-data
           emptyDir: {}
@@ -39,6 +39,7 @@ spec:
     - protocol: TCP
       port: 8081
       targetPort: 8081
+      nodePort: 30080
   type: NodePort
 
 ---
